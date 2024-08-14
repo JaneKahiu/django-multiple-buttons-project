@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Form Example</title>
+</head>
+<body>
+
+    <!-- Display any messages -->
+    {% if messages %}
+        <ul>
+            {% for message in messages %}
+                <li>{{ message }}</li>
+            {% endfor %}
+        </ul>
+    {% endif %}
+
+    <!-- Form Example -->
+    <h2>Submit Your Information</h2>
+    <form method="post">
+        {% csrf_token %}
+        
+        <label for="email">Email:</label>
+        <input type="email" name="email" id="email" required>
+        
+        <!-- Example of multiple actions -->
+        <button type="submit" name="action" value="subscribe">Subscribe</button>
+        <button type="submit" name="action" value="unsubscribe">Unsubscribe</button>
+    </form>
+</body>
+</html>
